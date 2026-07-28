@@ -172,7 +172,7 @@ st.markdown("""
 # =========================================================
 @st.cache_resource
 def load_model():
-    return tf.keras.models.load_model("MobileNet_Klasifikasi_Sampah.h5")
+    return tf.keras.models.load_model("../Models/MobileNet_Klasifikasi_Sampah.h5")
 
 model = load_model()
 

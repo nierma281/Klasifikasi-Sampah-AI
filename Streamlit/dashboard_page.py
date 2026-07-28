@@ -142,8 +142,8 @@ with nav3:
 # =========================================================
 st.markdown("""
 <div class="hero-banner">
-    <h1>♻️ Aplikasi Klasifikasi Sampah</h1>
-    <p>Identifikasi jenis sampah otomatis menggunakan Deep Learning (CNN - Transfer Learning)</p>
+    <h1>🌿 GoGreen AI </h1>
+    <p>Identifikasi jenis sampah otomatis menggunakan Deep Learning (CNN - MobileNet)</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -156,11 +156,11 @@ f1, f2, f3, f4 = st.columns(4)
 with f1:
     st.markdown("""<div class="feature-card"><h4>📷 Upload Gambar</h4><p>Upload foto sampah untuk dianalisis</p></div>""", unsafe_allow_html=True)
 with f2:
-    st.markdown("""<div class="feature-card"><h4>🤖 Prediksi AI</h4><p>Klasifikasi otomatis pakai model CNN</p></div>""", unsafe_allow_html=True)
+    st.markdown("""<div class="feature-card"><h4>🤖 Prediksi AI</h4><p>Klasifikasi otomatis menggunakan model CNN dengan arsitektur MobileNet</p></div>""", unsafe_allow_html=True)
 with f3:
     st.markdown("""<div class="feature-card"><h4>📊 Confidence Score</h4><p>Tingkat keyakinan tiap prediksi</p></div>""", unsafe_allow_html=True)
 with f4:
-    st.markdown("""<div class="feature-card"><h4>📚 Edukasi</h4><p>Info lengkap jenis-jenis sampah</p></div>""", unsafe_allow_html=True)
+    st.markdown("""<div class="feature-card"><h4>📚 Edukasi</h4><p>Info lengkap terkait jenis-jenis sampah</p></div>""", unsafe_allow_html=True)
 
 st.divider()
 
@@ -168,7 +168,7 @@ col1, col2, col3 = st.columns(3)
 with col1:
     st.metric("Jumlah Kelas", "3", help="Organik, Anorganik, B3")
 with col2:
-    st.metric("Model", "MobileNet")
+    st.metric("Model", "CNN - MobileNet")
 with col3:
     st.metric("Framework", "TensorFlow")
 

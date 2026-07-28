@@ -195,7 +195,7 @@ with tab2:
     st.markdown("""
     <div class="info-card">
         <h3>🧴 Sampah Anorganik</h3>
-        <p>Sampah anorganik merupakan sampah yang sulit atau butuh waktu lama untuk terurai,
+        <p>Sampah anorganik merupakan jenis sampah yang berassal dari bahan-bahan nonhayati, baik berupa produk sintesis maupun hasil proses teknologi pengolahan bahan tambang. Sampah Anorganik sulit atau butuh waktu lama untuk terurai secara alami,
         namun banyak yang bisa didaur ulang.</p>
         <p><b>Contoh:</b></p>
         <div>
@@ -208,6 +208,12 @@ with tab2:
             <span class="chip chip-anorganik">📦 Kardus</span>
             <span class="chip chip-anorganik">📄 Kertas</span>
         </div>
+        <p></p>
+        <p><b>Dampak Negatif Sampah Anorganik:</b></p>
+        <p>-Pencemaran Lingkungan
+           -Penyumbatan Saluran Air</p>
+
+
     </div>
     """, unsafe_allow_html=True)
 
