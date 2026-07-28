@@ -1,0 +1,15 @@
+# Virtual Environment
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# Streamlit
+.streamlit/
+
+# Model (opsional jika ukurannya besar)
+# *.h5
