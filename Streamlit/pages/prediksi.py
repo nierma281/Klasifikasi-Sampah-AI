@@ -1,6 +1,7 @@
 import streamlit as st
 import tensorflow as tf
 import numpy as np
+import os
 from PIL import Image
 
 # =========================================================
@@ -141,8 +142,12 @@ st.markdown("""
 st.markdown("""
 <div class="topnav">
     <div class="topnav-left">
-        <div class="logo-circle">🌿</div>
-        <span class="logo-text">GoGreen AI</span>
+        <div class="logo-circle">♻️</div>
+        <span class="logo-text">EcoSort AI</span>
+    </div>
+    <div class="topnav-right">
+        <div class="avatar-circle">🙂</div>
+        <div class="user-info"><b>Guest</b><br>User</div>
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -172,7 +177,12 @@ st.markdown("""
 # =========================================================
 @st.cache_resource
 def load_model():
-    return tf.keras.models.load_model("../Models/MobileNet_Klasifikasi_Sampah.h5")
+    # Naik dari pages/prediksi.py -> Streamlit/ -> root repo, tempat model .h5 berada
+    CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))   # .../Streamlit/pages
+    STREAMLIT_DIR = os.path.dirname(CURRENT_DIR)                # .../Streamlit
+    REPO_ROOT = os.path.dirname(STREAMLIT_DIR)                  # .../klasifikasi-sampah-ai
+    MODEL_PATH = os.path.join(REPO_ROOT, "MobileNet_Klasifikasi_Sampah.h5")
+    return tf.keras.models.load_model(MODEL_PATH)
 
 model = load_model()
 
