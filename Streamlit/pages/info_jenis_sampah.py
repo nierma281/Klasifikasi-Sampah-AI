@@ -116,8 +116,8 @@ st.markdown("""
 st.markdown("""
 <div class="topnav">
     <div class="topnav-left">
-        <div class="logo-circle">🌿</div>
-        <span class="logo-text">GoGreen AI</span>
+        <div class="logo-circle">📚</div>
+        <span class="logo-text">Informasi Jenis Sampah</span>
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -128,7 +128,7 @@ st.markdown("""
 st.markdown("""
 <div class="hero-banner">
     <h1>📚 Informasi Jenis Sampah</h1>
-    <p>Kenali karakteristik dan contoh masing-masing kategori sampah</p>
+    <p>Temukan informasi lengkap mengenai jenis, contoh, dampak, dan pengolahan sampah Organik, Anorganik, dan B3.</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -138,8 +138,7 @@ with tab1:
     st.markdown("""
     <div class="info-card">
         <h3>🌿 Sampah Organik</h3>
-        <p>Sampah organik merupakan sampah yang mudah terurai secara alami melalui proses biologis,
-        sehingga dapat diolah kembali menjadi kompos.</p>
+        <p>Sampah organik adalah sampah yang berasal dari makhluk hidup, seperti tumbuhan dan hewan, serta dapat terurai secara alami oleh mikroorganisme dalam waktu yang relatif singkat. Sampah ini dapat diolah kembali menjadi produk yang bermanfaat, seperti kompos atau biogas.</p>
         <p><b>Contoh:</b></p>
         <div>
             <span class="chip chip-organik">🍃 Daun</span>
@@ -148,6 +147,21 @@ with tab1:
             <span class="chip chip-organik">🍚 Sisa Makanan</span>
             <span class="chip chip-organik">🪵 Kayu</span>
         </div>
+        <p></p>
+        <p><b>Dampak Negatif Sampah Organik:</b></p>
+        <p>1. Menimbulkan bau tidak sedap<br> 
+           2. Menjadi tempat berkembang biaknya hama dan penyakit <br>
+           3. Mencemari lingkungan<br> 
+           4. Menghasilkan gas metana (CH4) yang berkontribusi terhadap pemanasan global<br> 
+           5. Mengganggu kebersihan dan kenyamanan lingkungan</b>
+        </p> 
+        <p><b>Pengolahan Sampah Organik yang Tepat:</b></p> 
+        <p>1. Pisahkan dari jenis sampah lainnya<br> 
+           2. Olah menjadi pupuk organik atau kompos<br>
+           3. Manfaatkan sebagai bahan biogas atau pakan ternak (sesuai jenisnya)<br> 
+           4. Lakukan pengolahan secara rutin untuk mengurangi timbunan sampah dan dampak pencemaran<br> 
+        </p>
+
     </div>
     """, unsafe_allow_html=True)
 
@@ -170,10 +184,19 @@ with tab2:
         </div>
         <p></p>
         <p><b>Dampak Negatif Sampah Anorganik:</b></p>
-        <p>-Pencemaran Lingkungan
-           -Penyumbatan Saluran Air</p>
-
-
+        <p>1. Pencemaran Lingkungan <br> 
+           2. Penyumbatan Saluran Air <br>
+           3. Mengganggu Estetika <br> 
+           4. Menimbulkan Penyakit (Pernapasan, Penyakit kulit, Kanker) <br> 
+           5. Mengancam Kehidupan Satwa</b>
+           6. Meningkatkan Emisi Gas Rumah Kaca
+        </p>
+        <p><b>Pengolahan Sampah Anorganik yang Tepat:</b></p> 
+        <p>1. Menerapkan 3R (Reduce, Reuse, Recycle) <br> 
+           2. Memilah Sampah <br>
+           3. Pengelolaan Sampah yang Baik <br> 
+           4. Peningkatan kesadaran masyarakat<br> 
+        </p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -181,8 +204,7 @@ with tab3:
     st.markdown("""
     <div class="info-card">
         <h3>☣️ Sampah B3</h3>
-        <p>B3 adalah Bahan Berbahaya dan Beracun yang memerlukan penanganan khusus
-        karena berisiko bagi kesehatan dan lingkungan.</p>
+        <p>Sampah B3 (Bahan Berbahaya dan Beracun) adalah sampah yang mengandung zat, energi, atau komponen berbahaya yang dapat membahayakan kesehatan manusia dan mencemari lingkungan apabila tidak dikelola dengan benar. Sampah ini memerlukan penanganan dan pengolahan khusus sesuai dengan ketentuan yang berlaku.</p>
         <p><b>Contoh:</b></p>
         <div>
             <span class="chip chip-b3">🔋 Baterai</span>
@@ -191,6 +213,20 @@ with tab3:
             <span class="chip chip-b3">🛢️ Oli Bekas</span>
             <span class="chip chip-b3">💊 Obat Kadaluarsa</span>
         </div>
+        <p></p>
+        <p><b>Dampak Negatif Sampah B3:</b></p>
+        <p>1. Pencemaran lingkungan <br> 
+           2. Berbahaya bagi kesehatan manusia karena mengandung zat beracun <br>
+           3. Mengancam kehidupan satwa & merusak ekosisten <br> 
+           4. Menyebabkan kebakaran atau ledakan jita tidak dikelola dengan benar<br> 
+        </p>
+        <p><b>Pengolahan Sampah B3 yang Tepat:</b></p> 
+        <p>1. Pisahkan dari sampah lainnya <br> 
+           2. Simpan dalam wadah khusus yang aman <br>
+           3. Jangan dibakar atau dibuang sembarangan<br> 
+           4. Serahkan ke fasilitas pengolahan limbah B3 yang berizin<br>
+           5. Olah menggunakan metode khusus sesuai limbahnya.<br> 
+        </p>
     </div>
     """, unsafe_allow_html=True)
     st.warning("⚠️ Jangan membuang sampah B3 sembarangan. Serahkan ke fasilitas pengolahan limbah B3 resmi.")

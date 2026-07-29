@@ -224,3 +224,4 @@ with col_result:
             st.progress(float(prob))
     else:
         st.info("⬅️ Upload gambar terlebih dahulu untuk melihat hasil prediksi di sini.")
+
