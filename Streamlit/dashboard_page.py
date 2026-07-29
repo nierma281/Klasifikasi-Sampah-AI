@@ -1,51 +1,38 @@
 import streamlit as st
+import os
 
 # =========================================================
-# CUSTOM CSS
+# CUSTOM CSS - TEMA TEAL/EMERALD, GAYA LANDING PAGE
 # =========================================================
 st.markdown("""
 <style>
-    .stApp { background-color: #F4F9F4; }
+    .stApp { background-color: #FFFFFF; }
 
-    /* Paksa teks native Streamlit (subheader, write, caption) tetap gelap
-       terlepas dari dark/light theme user */
     h1, h2, h3, h4, h5, h6,
     div[data-testid="stMarkdownContainer"] p,
     div[data-testid="stMarkdownContainer"] li,
     div[data-testid="stCaptionContainer"] {
-        color: #1a1a1a !important;
+        color: #1E293B !important;
     }
 
-    /* ===== NAVBAR ATAS ===== */
     .topnav {
         display: flex;
         justify-content: space-between;
         align-items: center;
         background: white;
-        padding: 0.8rem 1.5rem;
-        border-radius: 14px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-        margin-bottom: 1rem;
+        padding: 1rem 1.8rem;
+        border-bottom: 1px solid #E2E8F0;
+        margin-bottom: 0;
     }
     .topnav-left { display: flex; align-items: center; gap: 0.6rem; }
     .logo-circle {
-        width: 38px; height: 38px; border-radius: 50%;
-        background: linear-gradient(135deg, #2E7D32, #66BB6A);
+        width: 40px; height: 40px; border-radius: 10px;
+        background: #CCFBF1;
         display: flex; align-items: center; justify-content: center;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
-    .logo-text { font-size: 1.3rem; font-weight: 800; color: #2E7D32 !important; }
-    .topnav-right { display: flex; align-items: center; gap: 0.7rem; flex-shrink: 0; white-space: nowrap; }
-    .avatar-circle {
-        width: 38px; height: 38px; border-radius: 50%;
-        background: #E8F5E9; display: flex; align-items: center; justify-content: center;
-        font-size: 1.1rem; border: 2px solid #66BB6A;
-        flex-shrink: 0;
-    }
-    .user-info { font-size: 0.85rem; color: #333333 !important; line-height: 1.1; flex-shrink: 0; }
-    .user-info b { color: #2E7D32 !important; }
+    .logo-text { font-size: 1.25rem; font-weight: 800; color:  #14B8A6 !important; }
 
-    /* Tombol menu navbar - reset universal */
     .stButton > button {
         border: none !important;
         box-shadow: none !important;
@@ -56,68 +43,110 @@ st.markdown("""
     .stButton > button[data-testid="stBaseButton-secondary"],
     .stButton > button[data-testid="baseButton-secondary"] {
         background-color: transparent !important;
-        color: #333333 !important;
+        color: #334155 !important;
     }
     .stButton > button[kind="secondary"]:hover,
     .stButton > button[data-testid="stBaseButton-secondary"]:hover,
     .stButton > button[data-testid="baseButton-secondary"]:hover {
-        color: #2E7D32 !important;
-        background-color: #E8F5E9 !important;
+        color: #0F766E !important;
     }
     .stButton > button[kind="primary"],
     .stButton > button[data-testid="stBaseButton-primary"],
     .stButton > button[data-testid="baseButton-primary"] {
-        background: linear-gradient(135deg, #2E7D32, #66BB6A) !important;
+        background-color: #14B8A6 !important;
         color: white !important;
     }
-
-    /* ===== KONTEN LAIN ===== */
-    .hero-banner {
-        background: linear-gradient(135deg, #2E7D32 0%, #66BB6A 100%);
-        padding: 2.5rem 2rem;
-        border-radius: 16px;
-        color: white;
-        margin-bottom: 1.5rem;
-        box-shadow: 0 4px 14px rgba(46, 125, 50, 0.25);
+    .stButton > button[kind="primary"]:hover,
+    .stButton > button[data-testid="stBaseButton-primary"]:hover,
+    .stButton > button[data-testid="baseButton-primary"]:hover {
+        background-color: #0F766E !important;
     }
-    .hero-banner h1 { color: white !important; font-size: 2.2rem; margin-bottom: 0.3rem; }
-    .hero-banner p { color: #E8F5E9 !important; font-size: 1.05rem; margin: 0; }
 
-    .feature-card {
-        background: white;
-        padding: 1.3rem;
-        border-radius: 12px;
-        border-left: 5px solid #2E7D32;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    .hero-title {
+        font-size: 3rem;
+        font-weight: 800;
+        line-height: 1.1;
+        color: #14B8A6 !important;
         margin-bottom: 0.8rem;
+    }
+    .hero-subtitle {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #1E293B !important;
+        margin-bottom: 0.6rem;
+    }
+    .hero-desc {
+        font-size: 1rem;
+        color: #64748B !important;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+    div[data-testid="stImage"] img {
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    /* Sejajarkan (vertical align center) kolom teks & gambar di hero */
+    .st-key-hero_row div[data-testid="stHorizontalBlock"] {
+        align-items: center !important;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        font-weight: 800;
+        color: #1E293B !important;
+        text-align: center;
+        margin: 3rem 0 2rem 0;
+    }
+    .step-icon-box {
+        background: #99F6E4;
+        border-radius: 16px;
+        width: 90px; height: 90px;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+    .step-title {
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: #1E293B !important;
+        margin-bottom: 0.4rem;
+    }
+    .step-desc {
+        color: #64748B !important;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .feature-box {
+        border: 1.5px solid #99F6E4;
+        border-radius: 14px;
+        padding: 1.8rem;
         height: 100%;
     }
-    .feature-card h4 { margin-top: 0; color: #2E7D32 !important; }
-    .feature-card p { color: #333333 !important; margin: 0; }
-
-    .class-card {
-        padding: 1rem 1.2rem;
-        border-radius: 12px;
-        margin-bottom: 0.7rem;
-        font-weight: 600;
-        color: white !important;
+    .feature-icon {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+        color: #14B8A6 !important;
     }
-    .class-organik { background: linear-gradient(135deg, #43A047, #66BB6A); }
-    .class-anorganik { background: linear-gradient(135deg, #1565C0, #42A5F5); }
-    .class-b3 { background: linear-gradient(135deg, #D84315, #FF7043); }
-
-    div[data-testid="stMetric"] {
-        background: white;
-        padding: 1rem;
-        border-radius: 12px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    .feature-title {
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: #1E293B !important;
+        margin-bottom: 0.5rem;
+    }
+    .feature-desc {
+        color: #64748B !important;
+        font-size: 0.92rem;
+        line-height: 1.5;
     }
 </style>
 """, unsafe_allow_html=True)
 
 # =========================================================
-# NAVBAR ATAS
+# LOGO / BRANDING
 # =========================================================
+
 st.markdown("""
 <div class="topnav">
     <div class="topnav-left">
@@ -126,59 +155,107 @@ st.markdown("""
     </div>
 </div>
 """, unsafe_allow_html=True)
+st.write("")
+st.write("")
 
-nav1, nav2, nav3, _ = st.columns([1.1, 1.1, 1.4, 5])
-with nav1:
-    st.button("🏠 Dashboard", type="primary", use_container_width=True, key="nav_dashboard")
-with nav2:
-    if st.button("📷 Prediksi", type="secondary", use_container_width=True, key="nav_prediksi"):
+# =========================================================
+# HERO SECTION
+# =========================================================
+hero_container = st.container(key="hero_row")
+with hero_container:
+    col_text, col_visual = st.columns([1.1, 1])
+
+with col_text:
+    st.markdown('<div class="hero-title">Klasifikasi<br>Sampah</div>', unsafe_allow_html=True)
+    st.markdown('<div class="hero-subtitle">Klasifikasi sampah 3 jenis dengan Deep Learning End-to-End.</div>', unsafe_allow_html=True)
+    st.markdown("""
+    <div class="hero-desc">
+    Aplikasi yang mengintegrasikan model CNN (Transfer Learning) untuk mengklasifikasikan
+    sampah menjadi Organik, Anorganik, dan B3 secara otomatis bagi pengguna.
+    </div>
+    """, unsafe_allow_html=True)
+    if st.button("Mulai Sekarang", type="primary", key="hero_cta"):
         st.switch_page("pages/prediksi.py")
-with nav3:
-    if st.button("📚 Info Sampah", type="secondary", use_container_width=True, key="nav_info"):
-        st.switch_page("pages/info_jenis_sampah.py")
+
+with col_visual:
+    IMAGE_DIR = os.path.dirname(os.path.abspath(__file__))
+    IMAGE_PATH = os.path.join(IMAGE_DIR, "assets", "hero_waste.jpg")
+    if os.path.exists(IMAGE_PATH):
+        st.image(IMAGE_PATH, use_container_width=True)
+    else:
+        st.markdown("""
+        <div style="background:#F0FDFA; border:2px dashed #99F6E4; border-radius:20px;
+                    min-height:240px; display:flex; align-items:center; justify-content:center;
+                    text-align:center; padding:1.5rem;">
+            <div>
+                <div style="font-size:2.5rem;">🖼️</div>
+                <p style="color:#64748B !important; font-size:0.9rem; margin-top:0.5rem;">
+                    Taruh foto ilustrasi sampah/daur ulang di<br>
+                    <code>assets/hero_waste.jpg</code><br>
+                    (sejajar dengan file ini) untuk tampil di sini.
+                </p>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
 
 # =========================================================
-# HERO BANNER
+# CARA MENGGUNAKAN
 # =========================================================
-st.markdown("""
-<div class="hero-banner">
-    <h1>🌿 GoGreen AI </h1>
-    <p>Identifikasi jenis sampah otomatis menggunakan Deep Learning (CNN - MobileNet)</p>
-</div>
-""", unsafe_allow_html=True)
+st.markdown('<div class="section-title">Bagaimana cara menggunakannya?</div>', unsafe_allow_html=True)
+
+s1, s2, s3 = st.columns(3)
+with s1:
+    st.markdown("""
+    <div class="step-icon-box">🖼️</div>
+    <div class="step-title">1. Pilih Gambar</div>
+    <div class="step-desc">Pilih gambar sampah yang ingin diklasifikasikan.</div>
+    """, unsafe_allow_html=True)
+with s2:
+    st.markdown("""
+    <div class="step-icon-box">🤖</div>
+    <div class="step-title">2. Klasifikasikan</div>
+    <div class="step-desc">Model CNN akan mengklasifikasikan sampah berdasarkan 3 jenis kategori.</div>
+    """, unsafe_allow_html=True)
+with s3:
+    st.markdown("""
+    <div class="step-icon-box">📊</div>
+    <div class="step-title">3. Hasil Klasifikasi</div>
+    <div class="step-desc">Hasil klasifikasi ditampilkan berupa jenis sampah dan persentase kecocokan.</div>
+    """, unsafe_allow_html=True)
+
+st.write("")
+st.write("")
 
 # =========================================================
-# FITUR APLIKASI
+# KEUNGGULAN APLIKASI
 # =========================================================
-st.subheader("✨ Fitur Aplikasi")
+st.markdown('<div class="section-title">Keunggulan Aplikasi</div>', unsafe_allow_html=True)
 
-f1, f2, f3, f4 = st.columns(4)
+f1, f2, f3 = st.columns(3)
 with f1:
-    st.markdown("""<div class="feature-card"><h4>📷 Upload Gambar</h4><p>Upload foto sampah untuk dianalisis</p></div>""", unsafe_allow_html=True)
+    st.markdown("""
+    <div class="feature-box">
+        <div class="feature-icon">🗂️</div>
+        <div class="feature-title">Klasifikasi 3 Jenis Sampah</div>
+        <div class="feature-desc">Mengklasifikasikan sampah menjadi Organik, Anorganik, dan B3 beserta persentase kecocokan.</div>
+    </div>
+    """, unsafe_allow_html=True)
 with f2:
-    st.markdown("""<div class="feature-card"><h4>🤖 Prediksi AI</h4><p>Klasifikasi otomatis menggunakan model CNN dengan arsitektur MobileNet</p></div>""", unsafe_allow_html=True)
+    st.markdown("""
+    <div class="feature-box">
+        <div class="feature-icon">🙌</div>
+        <div class="feature-title">Mudah Digunakan</div>
+        <div class="feature-desc">Dapat digunakan siapa saja tanpa perlu memahami Machine Learning.</div>
+    </div>
+    """, unsafe_allow_html=True)
 with f3:
-    st.markdown("""<div class="feature-card"><h4>📊 Confidence Score</h4><p>Tingkat keyakinan tiap prediksi</p></div>""", unsafe_allow_html=True)
-with f4:
-    st.markdown("""<div class="feature-card"><h4>📚 Edukasi</h4><p>Info lengkap terkait jenis-jenis sampah</p></div>""", unsafe_allow_html=True)
+    st.markdown("""
+    <div class="feature-box">
+        <div class="feature-icon">🔗</div>
+        <div class="feature-title">End-to-End</div>
+        <div class="feature-desc">Model Machine Learning terintegrasi langsung berbasis web, tanpa perlu install Python.</div>
+    </div>
+    """, unsafe_allow_html=True)
 
-st.divider()
-
-col1, col2, col3 = st.columns(3)
-with col1:
-    st.metric("Jumlah Kelas", "3", help="Organik, Anorganik, B3")
-with col2:
-    st.metric("Model", "CNN - MobileNet")
-with col3:
-    st.metric("Framework", "TensorFlow")
-
-st.divider()
-
-st.subheader("🗂️ Kategori Sampah")
-st.markdown("""
-<div class="class-card class-organik">🌿 ORGANIK — sisa makanan, daun, bahan alami terurai</div>
-<div class="class-card class-anorganik">🧴 ANORGANIK — plastik, kaca, logam, kertas</div>
-<div class="class-card class-b3">☣️ B3 — baterai, limbah medis, bahan kimia berbahaya</div>
-""", unsafe_allow_html=True)
-
-st.caption("Model dikembangkan menggunakan TensorFlow dan Streamlit.")
+st.write("")
+st.caption("© 2026 GoGreen AI — Waste Classification Project")

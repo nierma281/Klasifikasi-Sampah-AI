@@ -9,7 +9,7 @@ from PIL import Image
 # =========================================================
 st.markdown("""
 <style>
-    .stApp { background-color: #F4F9F4; }
+    .stApp { background-color: #FFFFFF; }
 
     /* Paksa teks native Streamlit (subheader, write, label) tetap gelap
        terlepas dari dark/light theme user */
@@ -19,7 +19,7 @@ st.markdown("""
     label, .stFileUploader label,
     div[data-testid="stFileUploaderFileName"],
     div[data-testid="stCaptionContainer"] {
-        color: #1a1a1a !important;
+        color: #1E293B !important;
     }
 
     .topnav {
@@ -27,28 +27,27 @@ st.markdown("""
         justify-content: space-between;
         align-items: center;
         background: white;
-        padding: 0.8rem 1.5rem;
-        border-radius: 14px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        padding: 1rem 1.8rem;
+        border-bottom: 1px solid #E2E8F0;
         margin-bottom: 1rem;
     }
     .topnav-left { display: flex; align-items: center; gap: 0.6rem; }
     .logo-circle {
-        width: 38px; height: 38px; border-radius: 50%;
-        background: linear-gradient(135deg, #2E7D32, #66BB6A);
+        width: 40px; height: 40px; border-radius: 10px;
+        background: #CCFBF1;
         display: flex; align-items: center; justify-content: center;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
-    .logo-text { font-size: 1.3rem; font-weight: 800; color: #2E7D32 !important; }
+    .logo-text { font-size: 1.25rem; font-weight: 800; color:  #14B8A6 !important; }
     .topnav-right { display: flex; align-items: center; gap: 0.7rem; flex-shrink: 0; white-space: nowrap; }
     .avatar-circle {
         width: 38px; height: 38px; border-radius: 50%;
-        background: #E8F5E9; display: flex; align-items: center; justify-content: center;
-        font-size: 1.1rem; border: 2px solid #66BB6A;
+        background: #CCFBF1; display: flex; align-items: center; justify-content: center;
+        font-size: 1.1rem; border: 2px solid #99F6E4;
         flex-shrink: 0;
     }
     .user-info { font-size: 0.85rem; color: #333333 !important; line-height: 1.1; flex-shrink: 0; }
-    .user-info b { color: #2E7D32 !important; }
+    .user-info b { color: #0F766E !important; }
 
     .stButton > button {
         border: none !important;
@@ -60,31 +59,35 @@ st.markdown("""
     .stButton > button[data-testid="stBaseButton-secondary"],
     .stButton > button[data-testid="baseButton-secondary"] {
         background-color: transparent !important;
-        color: #333333 !important;
+        color: #334155 !important;
     }
     .stButton > button[kind="secondary"]:hover,
     .stButton > button[data-testid="stBaseButton-secondary"]:hover,
     .stButton > button[data-testid="baseButton-secondary"]:hover {
-        color: #2E7D32 !important;
-        background-color: #E8F5E9 !important;
+        color: #0F766E !important;
     }
     .stButton > button[kind="primary"],
     .stButton > button[data-testid="stBaseButton-primary"],
     .stButton > button[data-testid="baseButton-primary"] {
-        background: linear-gradient(135deg, #2E7D32, #66BB6A) !important;
+        background-color: #14B8A6 !important;
         color: white !important;
+    }
+    .stButton > button[kind="primary"]:hover,
+    .stButton > button[data-testid="stBaseButton-primary"]:hover,
+    .stButton > button[data-testid="baseButton-primary"]:hover {
+        background-color: #0F766E !important;
     }
 
     .hero-banner {
-        background: linear-gradient(135deg, #2E7D32 0%, #66BB6A 100%);
+        background: #14B8A6;
         padding: 2rem 2rem;
         border-radius: 16px;
         color: white;
         margin-bottom: 1.5rem;
-        box-shadow: 0 4px 14px rgba(46, 125, 50, 0.25);
+        box-shadow: 0 4px 14px rgba(15, 118, 110, 0.25);
     }
-    .hero-banner h1 { color: white !important; font-size: 1.9rem; margin-bottom: 0.3rem; }
-    .hero-banner p { color: #E8F5E9 !important; font-size: 1rem; margin: 0; }
+    div[data-testid="stMarkdownContainer"] .hero-banner h1 { color: white !important; font-size: 1.9rem; margin-bottom: 0.3rem; }
+    div[data-testid="stMarkdownContainer"] .hero-banner p { color: #CCFBF1 !important; font-size: 1rem; margin: 0; }
 
     .result-card {
         padding: 1.5rem 1.8rem;
@@ -106,8 +109,8 @@ st.markdown("""
         box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
     div[data-testid="stFileUploaderDropzone"] {
-        background-color: #F4F9F4 !important;
-        border: 2px dashed #66BB6A !important;
+        background-color: #F0FDFA !important;
+        border: 2px dashed #5EEAD4 !important;
         border-radius: 10px !important;
     }
     div[data-testid="stFileUploaderDropzone"] span,
@@ -117,16 +120,16 @@ st.markdown("""
     }
     div[data-testid="stFileUploaderDropzone"] button {
         background-color: white !important;
-        color: #2E7D32 !important;
-        border: 1px solid #2E7D32 !important;
+        color: #0F766E !important;
+        border: 1px solid #0F766E !important;
         border-radius: 8px !important;
         font-weight: 600 !important;
     }
     div[data-testid="stFileUploaderDropzone"] svg {
-        fill: #2E7D32 !important;
+        fill: #0F766E !important;
     }
     div[data-testid="stFileUploaderFile"] {
-        background-color: #F4F9F4 !important;
+        background-color: #F0FDFA !important;
         border-radius: 8px !important;
     }
     div[data-testid="stFileUploaderFile"] span,
@@ -137,30 +140,16 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # =========================================================
-# NAVBAR ATAS
+# LOGO / BRANDING
 # =========================================================
 st.markdown("""
 <div class="topnav">
     <div class="topnav-left">
-        <div class="logo-circle">♻️</div>
-        <span class="logo-text">EcoSort AI</span>
-    </div>
-    <div class="topnav-right">
-        <div class="avatar-circle">🙂</div>
-        <div class="user-info"><b>Guest</b><br>User</div>
+        <div class="logo-circle">🌿</div>
+        <span class="logo-text">GoGreen AI</span>
     </div>
 </div>
 """, unsafe_allow_html=True)
-
-nav1, nav2, nav3, _ = st.columns([1.1, 1.1, 1.4, 5])
-with nav1:
-    if st.button("🏠 Dashboard", type="secondary", use_container_width=True, key="nav_dashboard"):
-        st.switch_page("dashboard_page.py")
-with nav2:
-    st.button("📷 Prediksi", type="primary", use_container_width=True, key="nav_prediksi")
-with nav3:
-    if st.button("📚 Info Sampah", type="secondary", use_container_width=True, key="nav_info"):
-        st.switch_page("pages/info_jenis_sampah.py")
 
 # =========================================================
 # HEADER
@@ -181,7 +170,7 @@ def load_model():
     CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))   # .../Streamlit/pages
     STREAMLIT_DIR = os.path.dirname(CURRENT_DIR)                # .../Streamlit
     REPO_ROOT = os.path.dirname(STREAMLIT_DIR)                  # .../klasifikasi-sampah-ai
-    MODEL_PATH = os.path.join(REPO_ROOT, "Models", "MobileNet_Klasifikasi_Sampah.h5")
+    MODEL_PATH = os.path.join(REPO_ROOT,"Models", "MobileNet_Klasifikasi_Sampah.h5")
     return tf.keras.models.load_model(MODEL_PATH)
 
 model = load_model()

@@ -5,7 +5,7 @@ import streamlit as st
 # =========================================================
 st.markdown("""
 <style>
-    .stApp { background-color: #F4F9F4; }
+    .stApp { background-color: #FFFFFF; }
 
     /* Paksa teks native Streamlit (subheader, write, caption) tetap gelap
        terlepas dari dark/light theme user */
@@ -13,7 +13,7 @@ st.markdown("""
     div[data-testid="stMarkdownContainer"] p,
     div[data-testid="stMarkdownContainer"] li,
     div[data-testid="stCaptionContainer"] {
-        color: #1a1a1a !important;
+        color: #1E293B !important;
     }
 
     .topnav {
@@ -21,81 +21,29 @@ st.markdown("""
         justify-content: space-between;
         align-items: center;
         background: white;
-        padding: 0.8rem 1.5rem;
-        border-radius: 14px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        padding: 1rem 1.8rem;
+        border-bottom: 1px solid #E2E8F0;
         margin-bottom: 1rem;
     }
     .topnav-left { display: flex; align-items: center; gap: 0.6rem; }
     .logo-circle {
-        width: 38px; height: 38px; border-radius: 50%;
-        background: linear-gradient(135deg, #2E7D32, #66BB6A);
+        width: 40px; height: 40px; border-radius: 10px;
+        background: #CCFBF1;
         display: flex; align-items: center; justify-content: center;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
-    .logo-text { font-size: 1.3rem; font-weight: 800; color: #2E7D32 !important; }
-    .topnav-right { display: flex; align-items: center; gap: 0.7rem; flex-shrink: 0; white-space: nowrap; }
-    .avatar-circle {
-        width: 38px; height: 38px; border-radius: 50%;
-        background: #E8F5E9; display: flex; align-items: center; justify-content: center;
-        font-size: 1.1rem; border: 2px solid #66BB6A;
-        flex-shrink: 0;
-    }
-    .user-info { font-size: 0.85rem; color: #333333 !important; line-height: 1.1; flex-shrink: 0; }
-    .user-info b { color: #2E7D32 !important; }
-
-    .stButton > button {
-        border: none !important;
-        box-shadow: none !important;
-        font-weight: 600 !important;
-        border-radius: 8px !important;
-    }
-    .stButton > button[kind="secondary"],
-    .stButton > button[data-testid="stBaseButton-secondary"],
-    .stButton > button[data-testid="baseButton-secondary"] {
-        background-color: transparent !important;
-        color: #333333 !important;
-    }
-    .stButton > button[kind="secondary"]:hover,
-    .stButton > button[data-testid="stBaseButton-secondary"]:hover,
-    .stButton > button[data-testid="baseButton-secondary"]:hover {
-        color: #2E7D32 !important;
-        background-color: #E8F5E9 !important;
-    }
-    .stButton > button[kind="primary"],
-    .stButton > button[data-testid="stBaseButton-primary"],
-    .stButton > button[data-testid="baseButton-primary"] {
-        background: linear-gradient(135deg, #2E7D32, #66BB6A) !important;
-        color: white !important;
-    }
-
-    div[data-testid="column"] .stButton > button[kind="secondary"] {
-        background-color: transparent;
-        border: none;
-        color: #333333 !important;
-        font-weight: 600;
-        box-shadow: none;
-    }
-    div[data-testid="column"] .stButton > button[kind="secondary"]:hover {
-        color: #2E7D32 !important;
-    }
-    div[data-testid="column"] .stButton > button[kind="primary"] {
-        background: linear-gradient(135deg, #2E7D32, #66BB6A) !important;
-        border: none !important;
-        color: white !important;
-        font-weight: 700;
-    }
+    .logo-text { font-size: 1.25rem; font-weight: 800; color:  #14B8A6 !important; }
 
     .hero-banner {
-        background: linear-gradient(135deg, #2E7D32 0%, #66BB6A 100%);
+        background: #14B8A6;
         padding: 2rem 2rem;
         border-radius: 16px;
         color: white;
         margin-bottom: 1.5rem;
-        box-shadow: 0 4px 14px rgba(46, 125, 50, 0.25);
+        box-shadow: 0 4px 14px rgba(15, 118, 110, 0.25);
     }
-    .hero-banner h1 { color: white !important; font-size: 1.9rem; margin-bottom: 0.3rem; }
-    .hero-banner p { color: #E8F5E9 !important; font-size: 1rem; margin: 0; }
+    div[data-testid="stMarkdownContainer"] .hero-banner h1 { color: white !important; font-size: 1.9rem; margin-bottom: 0.3rem; }
+    div[data-testid="stMarkdownContainer"] .hero-banner p { color: #CCFBF1 !important; font-size: 1rem; margin: 0; }
 
     .info-card {
         background: white;
@@ -104,7 +52,7 @@ st.markdown("""
         box-shadow: 0 2px 10px rgba(0,0,0,0.06);
         margin-bottom: 1rem;
     }
-    .info-card h3 { color: #2E7D32 !important; }
+    .info-card h3 { color: #0F766E !important; }
     .info-card p { color: #333333 !important; }
 
     .chip {
@@ -120,28 +68,50 @@ st.markdown("""
     .chip-anorganik { background: linear-gradient(135deg, #1565C0, #42A5F5); }
     .chip-b3 { background: linear-gradient(135deg, #D84315, #FF7043); }
 
-    /* ===== FIX: label tab tidak kelihatan ===== */
-    .stTabs [data-baseweb="tab-list"] { gap: 8px; }
+    /* ===== TAB REDESIGN: pill style, bukan underline default ===== */
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 8px;
+        background: white;
+        padding: 6px;
+        border-radius: 14px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        display: inline-flex;
+        width: fit-content;
+    }
     .stTabs [data-baseweb="tab"] {
-        background-color: white;
-        border-radius: 10px 10px 0 0;
-        padding: 0.6rem 1.2rem;
+        background-color: transparent !important;
+        border-radius: 10px !important;
+        padding: 0.6rem 1.4rem !important;
+        transition: all 0.2s ease;
+        border: none !important;
     }
     .stTabs [data-baseweb="tab"] p {
-        color: #333333 !important;
+        color: #666666 !important;
         font-weight: 600 !important;
+        margin: 0 !important;
     }
     .stTabs [aria-selected="true"] p {
-        color: #2E7D32 !important;
+        color: #0F766E !important;
     }
-    .stTabs [aria-selected="true"] {
-        border-bottom: 3px solid #2E7D32 !important;
+    .stTabs [data-baseweb="tab-highlight"],
+    .stTabs [data-baseweb="tab-border"] {
+        display: none !important;
+    }
+    .stTabs [data-baseweb="tab"]:focus,
+    .stTabs [data-baseweb="tab"]:focus-visible,
+    .stTabs [data-baseweb="tab"][aria-selected="true"] {
+        outline: none !important;
+        box-shadow: none !important;
+        border: none !important;
+    }
+    .stTabs [data-baseweb="tab-list"] button {
+        outline: none !important;
     }
 </style>
 """, unsafe_allow_html=True)
 
 # =========================================================
-# NAVBAR ATAS
+# LOGO / BRANDING
 # =========================================================
 st.markdown("""
 <div class="topnav">
@@ -151,16 +121,6 @@ st.markdown("""
     </div>
 </div>
 """, unsafe_allow_html=True)
-
-nav1, nav2, nav3, _ = st.columns([1.1, 1.1, 1.4, 5])
-with nav1:
-    if st.button("🏠 Dashboard", type="secondary", use_container_width=True, key="nav_dashboard"):
-        st.switch_page("dashboard_page.py")
-with nav2:
-    if st.button("📷 Prediksi", type="secondary", use_container_width=True, key="nav_prediksi"):
-        st.switch_page("pages/prediksi.py")
-with nav3:
-    st.button("📚 Info Sampah", type="primary", use_container_width=True, key="nav_info")
 
 # =========================================================
 # HEADER
