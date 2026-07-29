@@ -181,7 +181,7 @@ def load_model():
     CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))   # .../Streamlit/pages
     STREAMLIT_DIR = os.path.dirname(CURRENT_DIR)                # .../Streamlit
     REPO_ROOT = os.path.dirname(STREAMLIT_DIR)                  # .../klasifikasi-sampah-ai
-    MODEL_PATH = os.path.join(REPO_ROOT, "Models", "RestNet_Klasifikasi_Sampah.h5")
+    MODEL_PATH = os.path.join(REPO_ROOT, "Models", "MobileNet_Klasifikasi_Sampah.h5")
     return tf.keras.models.load_model(MODEL_PATH)
 
 model = load_model()
