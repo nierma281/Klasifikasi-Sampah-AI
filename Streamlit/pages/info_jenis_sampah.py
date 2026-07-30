@@ -116,8 +116,8 @@ st.markdown("""
 st.markdown("""
 <div class="topnav">
     <div class="topnav-left">
-        <div class="logo-circle">📚</div>
-        <span class="logo-text">Informasi Jenis Sampah</span>
+        <div class="logo-circle">🍀</div>
+        <span class="logo-text">GoGreen AI</span>
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -132,7 +132,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-tab1, tab2, tab3 = st.tabs(["🌿 Organik", "🧴 Anorganik", "☣️ B3"])
+tab1, tab2, tab3 = st.tabs(["🌿 Organik", "♻️ Anorganik", "☣️ B3"])
 
 with tab1:
     st.markdown("""
@@ -168,15 +168,15 @@ with tab1:
 with tab2:
     st.markdown("""
     <div class="info-card">
-        <h3>🧴 Sampah Anorganik</h3>
+        <h3>♻️ Sampah Anorganik</h3>
         <p>Sampah anorganik merupakan jenis sampah yang berassal dari bahan-bahan nonhayati, baik berupa produk sintesis maupun hasil proses teknologi pengolahan bahan tambang. Sampah Anorganik sulit atau butuh waktu lama untuk terurai secara alami,
         namun banyak yang bisa didaur ulang.</p>
         <p><b>Contoh:</b></p>
         <div>
-            <span class="chip chip-anorganik">🍾 Styrofoam</span>
-            <span class="chip chip-anorganik">🍾 Tekstil</span>
-            <span class="chip chip-anorganik">🍾 Plastik</span>
-            <span class="chip chip-anorganik"> Karet</span>
+            <span class="chip chip-anorganik">🥡 Styrofoam</span>
+            <span class="chip chip-anorganik">🧦 Tekstil</span>
+            <span class="chip chip-anorganik">🥤 Plastik</span>
+            <span class="chip chip-anorganik">🩴 Karet</span>
             <span class="chip chip-anorganik">🥫 Aluminium</span>
             <span class="chip chip-anorganik">🪟 Kaca</span>
             <span class="chip chip-anorganik">📦 Kardus</span>

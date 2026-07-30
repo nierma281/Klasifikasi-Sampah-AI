@@ -145,7 +145,7 @@ st.markdown("""
 st.markdown("""
 <div class="topnav">
     <div class="topnav-left">
-        <div class="logo-circle">🌿</div>
+        <div class="logo-circle">🍀</div>
         <span class="logo-text">GoGreen AI</span>
     </div>
 </div>
@@ -177,7 +177,7 @@ model = load_model()
 
 class_names = ["Anorganik", "B3", "Organik"]
 class_style = {
-    "Anorganik": ("result-anorganik", "🧴"),
+    "Anorganik": ("result-anorganik", "♻️"),
     "B3": ("result-b3", "☣️"),
     "Organik": ("result-organik", "🌿"),
 }
