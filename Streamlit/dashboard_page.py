@@ -167,7 +167,7 @@ with hero_container:
 
 with col_text:
     st.markdown('<div class="hero-title">Klasifikasi<br>Sampah</div>', unsafe_allow_html=True)
-    st.markdown('<div class="hero-subtitle">Klasifikasi Sampah Organik, Anorganik, dan B3 Menggunakan Deep Learning End-to-End Berbasis MobileNetV2.</div>', unsafe_allow_html=True)
+    st.markdown('<div class="hero-subtitle">Klasifikasi Sampah Organik, Anorganik, dan B3 Menggunakan Deep Learning End-to-End Berbasis MobileNet.</div>', unsafe_allow_html=True)
     st.markdown("""
     <div class="hero-desc">
     Aplikasi yang mengintegrasikan model CNN (Transfer Learning) untuk mengklasifikasikan
