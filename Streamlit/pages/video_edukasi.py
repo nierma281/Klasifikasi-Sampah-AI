@@ -9,7 +9,7 @@ ASSETS = os.path.join(ROOT, "assets")
 
 # ====== SESUAIKAN ======
 VIDEO_FILE = os.path.join(ASSETS, "video_edukasi.mp4")
-VIDEO_URL = ""          # contoh: "https://www.youtube.com/watch?v=xxxx"
+VIDEO_URL = "https://youtu.be/u-XkLWboeIg?si=SRfOlBgiHkgcuJnv"       
 NARASI = os.path.join(ASSETS, "narasi.mp3")
 MUSIK = os.path.join(ASSETS, "musik_latar.mp3")
 # =======================
