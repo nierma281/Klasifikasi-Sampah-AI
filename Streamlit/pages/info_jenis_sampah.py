@@ -1,4 +1,5 @@
 import streamlit as st
+from tema import logo_html
 
 # =========================================================
 # CUSTOM CSS
@@ -113,10 +114,10 @@ st.markdown("""
 # =========================================================
 # LOGO / BRANDING
 # =========================================================
-st.markdown("""
+st.markdown(f"""
 <div class="topnav">
     <div class="topnav-left">
-        <div class="logo-circle">🍀</div>
+        {logo_html()}
         <span class="logo-text">GoGreen AI</span>
     </div>
 </div>
