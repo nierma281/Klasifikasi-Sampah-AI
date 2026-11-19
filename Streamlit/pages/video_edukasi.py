@@ -9,7 +9,7 @@ ASSETS = os.path.join(ROOT, "assets")
 
 # ====== SESUAIKAN ======
 VIDEO_FILE = os.path.join(ASSETS, "video_edukasi.mp4")
-VIDEO_URL = ""          # contoh: "https://www.youtube.com/watch?v=xxxx"
+VIDEO_URL = "https://youtu.be/u-XkLWboeIg?si=9RQZ0NQK6p-dEmmN"          # contoh: "https://www.youtube.com/watch?v=xxxx"
 # =======================
 
 header("🎬 Video Edukasi", "Tonton cara memilah sampah dengan benar, lalu coba prediksi dan kuisnya.")
