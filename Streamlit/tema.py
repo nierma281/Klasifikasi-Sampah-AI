@@ -1,7 +1,20 @@
 """Tema bersama GoGreen AI (teal/emerald, sama dengan dashboard_page.py).
 Dipakai oleh halaman baru: from tema import terapkan_tema, header
 """
+import base64
+import os
 import streamlit as st
+
+LOGO_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "logo.png")
+
+def logo_html():
+    """Logo GoGreen AI untuk navbar (jatuh ke emoji 🍀 kalau assets/logo.png tidak ada)."""
+    if os.path.exists(LOGO_PATH):
+        with open(LOGO_PATH, "rb") as f:
+            b64 = base64.b64encode(f.read()).decode()
+        return (f'<div class="logo-circle" style="background:transparent;width:48px;height:48px;">'
+                f'<img src="data:image/png;base64,{b64}" style="width:100%;height:100%;object-fit:contain;"></div>')
+    return '<div class="logo-circle">🍀</div>'
 
 CSS = """
 <style>
