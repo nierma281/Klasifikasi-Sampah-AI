@@ -1,5 +1,17 @@
 import streamlit as st
 import os
+import base64
+
+# Logo GoGreen AI: simpan file logomu di assets/logo.png (PNG transparan, ideal persegi)
+LOGO_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "logo.png")
+
+def logo_html():
+    if os.path.exists(LOGO_PATH):
+        with open(LOGO_PATH, "rb") as f:
+            b64 = base64.b64encode(f.read()).decode()
+        return (f'<div class="logo-circle" style="background:transparent;width:48px;height:48px;">'
+                f'<img src="data:image/png;base64,{b64}" style="width:100%;height:100%;object-fit:contain;"></div>')
+    return '<div class="logo-circle">🍀</div>'
 
 # =========================================================
 # CUSTOM CSS - TEMA TEAL/EMERALD, GAYA LANDING PAGE
@@ -153,10 +165,10 @@ st.markdown("""
 # LOGO / BRANDING
 # =========================================================
 
-st.markdown("""
+st.markdown(f"""
 <div class="topnav">
     <div class="topnav-left">
-        <div class="logo-circle">🍀</div>
+        {logo_html()}
         <span class="logo-text">GoGreen AI</span>
     </div>
 </div>
