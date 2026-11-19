@@ -62,6 +62,11 @@ st.markdown("""
         background-color: #0F766E !important;
     }
 
+
+    /* teks tombol utama putih (menimpa aturan warna paragraf) */
+    .stButton > button[kind="primary"] p, .stButton > button[data-testid="stBaseButton-primary"] p,
+    div[data-testid="stFormSubmitButton"] > button p, .stDownloadButton > button p { color: white !important; }
+
     .hero-title {
         font-size: 3rem;
         font-weight: 800;
@@ -124,6 +129,7 @@ st.markdown("""
         padding: 1.8rem;
         height: 100%;
     }
+    .feature-box.edu { min-height: 265px; margin-bottom: 0.8rem; }
     .feature-icon {
         font-size: 2.2rem;
         margin-bottom: 1rem;
@@ -171,7 +177,8 @@ with col_text:
     st.markdown("""
     <div class="hero-desc">
     Aplikasi yang mengintegrasikan model CNN (Transfer Learning) untuk mengklasifikasikan
-    sampah menjadi Organik, Anorganik, dan B3 secara otomatis bagi pengguna.
+    sampah menjadi Organik, Anorganik, dan B3 secara otomatis bagi pengguna,
+    dilengkapi media edukasi berupa video, informasi jenis sampah, dan kuis.
     </div>
     """, unsafe_allow_html=True)
     if st.button("Mulai Sekarang", type="primary", key="hero_cta"):
@@ -222,6 +229,46 @@ with s3:
     <div class="step-title">3. Hasil Klasifikasi</div>
     <div class="step-desc">Hasil klasifikasi ditampilkan berupa jenis sampah dan persentase kecocokan.</div>
     """, unsafe_allow_html=True)
+
+st.write("")
+st.write("")
+
+# =========================================================
+# BELAJAR MEMILAH SAMPAH (MEDIA EDUKASI)
+# =========================================================
+st.markdown('<div class="section-title">Belajar Memilah Sampah</div>', unsafe_allow_html=True)
+
+e1, e2, e3 = st.columns(3)
+with e1:
+    st.markdown("""
+    <div class="feature-box edu">
+        <div class="feature-icon">📚</div>
+        <div class="feature-title">Info Jenis Sampah</div>
+        <div class="feature-desc">Kenali sampah Organik, Anorganik, dan B3 beserta contoh dan cara penanganannya.</div>
+    </div>
+    """, unsafe_allow_html=True)
+    if st.button("Pelajari", type="primary", key="cta_info"):
+        st.switch_page("pages/info_jenis_sampah.py")
+with e2:
+    st.markdown("""
+    <div class="feature-box edu">
+        <div class="feature-icon">🎬</div>
+        <div class="feature-title">Video Edukasi</div>
+        <div class="feature-desc">Tonton video singkat dan dengarkan narasi tentang cara memilah sampah dengan benar.</div>
+    </div>
+    """, unsafe_allow_html=True)
+    if st.button("Tonton Video", type="primary", key="cta_video"):
+        st.switch_page("pages/video_edukasi.py")
+with e3:
+    st.markdown("""
+    <div class="feature-box edu">
+        <div class="feature-icon">🎯</div>
+        <div class="feature-title">Kuis Interaktif</div>
+        <div class="feature-desc">Uji pemahamanmu lewat 10 soal acak dan lihat skor akhirmu.</div>
+    </div>
+    """, unsafe_allow_html=True)
+    if st.button("Mulai Kuis", type="primary", key="cta_kuis"):
+        st.switch_page("pages/kuis.py")
 
 st.write("")
 st.write("")

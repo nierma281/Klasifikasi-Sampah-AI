@@ -11,6 +11,9 @@ pg = st.navigation(
         st.Page("dashboard_page.py", title="Dashboard", icon="🏠", default=True),
         st.Page("pages/prediksi.py", title="Prediksi", icon="📷"),
         st.Page("pages/info_jenis_sampah.py", title="Info Sampah", icon="📚"),
+        st.Page("pages/video_edukasi.py", title="Video Edukasi", icon="🎬"),
+        st.Page("pages/kuis.py", title="Kuis", icon="🎯"),
+        st.Page("pages/masukan.py", title="Masukan", icon="💬"),
     ],
     position="sidebar"
 )
