@@ -10,7 +10,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data", "masukan.csv")
 
 header("💬 Tentang & Masukan", "GoGreen AI adalah media edukasi pemilahan sampah berbasis AI, dikembangkan untuk tugas UTS Sistem Multimedia.")
-st.markdown("**Tim:** (isi nama anggota kelompok)")
+st.markdown("**Tim:** Muhammad Fadhlan (200411100001), Muhammad Fadhil (200411100002), Muhammad Fadhlan (200411100003)")
 
 with st.form("form_masukan", clear_on_submit=True):
     nama = st.text_input("Nama (opsional)")
