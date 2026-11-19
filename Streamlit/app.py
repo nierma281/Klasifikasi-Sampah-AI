@@ -4,7 +4,7 @@ import streamlit.components.v1 as components
 
 LOGO = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "logo.png")
 ADA_LOGO = os.path.exists(LOGO)
-MUSIK = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "musik_latar.mp3")
+MUSIK = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "musik_latar (1).mp3")
 
 st.set_page_config(
     page_title="GoGreen AI",
