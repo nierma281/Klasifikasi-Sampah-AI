@@ -9,9 +9,7 @@ ASSETS = os.path.join(ROOT, "assets")
 
 # ====== SESUAIKAN ======
 VIDEO_FILE = os.path.join(ASSETS, "video_edukasi.mp4")
-VIDEO_URL = "https://youtu.be/u-XkLWboeIg?si=SRfOlBgiHkgcuJnv"       
-NARASI = os.path.join(ASSETS, "narasi.mp3")
-MUSIK = os.path.join(ASSETS, "musik_latar.mp3")
+VIDEO_URL = ""          # contoh: "https://www.youtube.com/watch?v=xxxx"
 # =======================
 
 header("🎬 Video Edukasi", "Tonton cara memilah sampah dengan benar, lalu coba prediksi dan kuisnya.")
@@ -22,20 +20,6 @@ elif VIDEO_URL:
     st.video(VIDEO_URL)
 else:
     st.info("Video belum tersedia. Letakkan file di `assets/video_edukasi.mp4` atau isi `VIDEO_URL` pada file ini.")
-
-c1, c2 = st.columns(2)
-with c1:
-    st.markdown("#### 🎧 Narasi")
-    if os.path.exists(NARASI):
-        st.audio(NARASI)
-    else:
-        st.caption("Tambahkan `assets/narasi.mp3`.")
-with c2:
-    st.markdown("#### 🎵 Musik latar")
-    if os.path.exists(MUSIK):
-        st.audio(MUSIK, loop=True)
-    else:
-        st.caption("Tambahkan `assets/musik_latar.mp3`.")
 
 st.markdown('<div class="section-title">Poin penting</div>', unsafe_allow_html=True)
 st.markdown('<div class="poin-box">♻️ <b>Prinsip 3R:</b> Reduce (kurangi), Reuse (pakai ulang), Recycle (daur ulang).</div>',
